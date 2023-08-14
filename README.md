@@ -1,9 +1,5 @@
 # API do Criciúma EC - Data Hub
 
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
-
-
 > Bem-vindo ao repositório da API do Criciúma EC Data! Esta é uma aplicação Node.js desenvolvida para fornecer dados atualizados e detalhados sobre o Criciúma Esporte Clube, um dos clubes de futebol mais queridos do Brasil. Através desta API, você poderá acessar informações essenciais sobre o desempenho do time na Série B do Campeonato Brasileiro, bem como os detalhes dos próximos jogos agendados.
 
 ### Recursos principais
