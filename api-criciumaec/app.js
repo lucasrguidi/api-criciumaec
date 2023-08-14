@@ -1,5 +1,4 @@
 const express = require("express");
-const express = require("express");
 const nextMatchesController = require("./controllers/nextMatchesController");
 const tableController = require("./controllers/tableController");
 
