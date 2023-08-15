@@ -1,7 +1,7 @@
-const axios = require("axios");
-const cheerio = require("cheerio");
+const axios = require('axios');
+const cheerio = require('cheerio');
 
-const url = "https://www.placardefutebol.com.br/time/criciuma/proximos-jogos";
+const url = 'https://www.placardefutebol.com.br/time/criciuma/proximos-jogos';
 
 async function getNextMatches() {
   const { data } = await axios.get(url);
@@ -9,27 +9,27 @@ async function getNextMatches() {
 
   const nextMatchesData = [];
 
-  $("#main a").each((i, element) => {
+  $('#main a').each((i, element) => {
     const campeonato = $(element)
-      .find(".match__lg_card .match__lg_card--league")
+      .find('.match__lg_card .match__lg_card--league')
       .text();
 
     const mandante = $(element)
-      .find(".match__lg_card .match__lg_card--ht-name")
+      .find('.match__lg_card .match__lg_card--ht-name')
       .text();
 
-    const visitante = $(element).find(".match__lg_card--at-name").text();
+    const visitante = $(element).find('.match__lg_card--at-name').text();
 
     const escudoMandante = $(element)
-      .find(".match__lg_card--ht-logo img")
-      .attr("src");
+      .find('.match__lg_card--ht-logo img')
+      .attr('src');
 
     const escudoVisitante = $(element)
-      .find(".match__lg_card--at-logo img")
-      .attr("src");
+      .find('.match__lg_card--at-logo img')
+      .attr('src');
 
     const data = $(element)
-      .find(".match__lg_card--info .match__lg_card--datetime")
+      .find('.match__lg_card--info .match__lg_card--datetime')
       .contents()
       .filter(function () {
         return this.nodeType === 3;
@@ -39,7 +39,7 @@ async function getNextMatches() {
       .trim();
 
     const horario = $(element)
-      .find(".match__lg_card--info .match__lg_card--datetime")
+      .find('.match__lg_card--info .match__lg_card--datetime')
       .contents()
       .filter(function () {
         return this.nodeType === 3;
@@ -64,8 +64,4 @@ async function getNextMatches() {
 
     nextMatchesData.push(matchesData);
   });
-
-  console.log(nextMatchesData);
 }
-
-getNextMatches();
