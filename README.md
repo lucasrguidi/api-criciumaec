@@ -29,7 +29,7 @@ Esta API também oferece uma rota dedicada para exibir os próximos jogos do Cri
 Nome e link para escudo do adversário
 Data e horário do jogo
 
-### Próximos Jogos do Criciúma
+### Últimos Jogos do Criciúma
 
 Esta API também oferece uma rota dedicada para exibir os últimos jogos do Criciúma. As informações incluídas para cada partida são:
 
