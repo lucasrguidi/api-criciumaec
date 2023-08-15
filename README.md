@@ -45,3 +45,26 @@ O projeto ainda está em desenvolvimento, tendo apenas funcionalidades iniciais.
 - [ ] Retrospectiva com o adverśario
 - [ ] Estatísticas de jogadores
 - [ ] Estatísticas detalhadas dos jogos
+
+## Instalar
+
+    npm install
+
+## Rodar a API
+
+    node app.js
+
+# REST API
+
+## GET Tabela
+
+`GET /tabela/`
+
+## GET Próximos jogos
+
+`GET /next-matches/`
+
+## GET Últimos jogos
+
+`GET /last-matches/`
+
