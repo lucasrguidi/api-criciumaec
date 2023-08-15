@@ -41,7 +41,7 @@ Placar da partida
 
 O projeto ainda está em desenvolvimento, tendo apenas funcionalidades iniciais. Tenho como objetivo implementar as seguintes tarefas no futuro:
 
-- [ ] Últimos jogos
+- [X] Últimos jogos
 - [ ] Retrospectiva com o adverśario
 - [ ] Estatísticas de jogadores
 - [ ] Estatísticas detalhadas dos jogos
