@@ -1,10 +1,18 @@
 const express = require('express');
+const cors = require('cors');
+const corsOptions = {
+  origin: '*',
+  credentials: true,
+  optionSuccessStatus: 200,
+};
 const tableController = require('./controllers/tableController');
 const nextMatchesController = require('./controllers/nextMatchesController');
 const lastMatchesController = require('./controllers/lastMatchesController');
 
 const app = express();
 const port = 3000;
+
+app.use(cors(corsOptions));
 
 app.get('/api/table', async (req, res) => {
   try {
@@ -18,7 +26,14 @@ app.get('/api/table', async (req, res) => {
 app.get('/api/next-matches', async (req, res) => {
   try {
     const nextMatchesData = await nextMatchesController.getNextMatchesData();
-    res.json(nextMatchesData);
+    const stadiumsData = await nextMatchesController.getEstadios();
+
+    const updatedMatchesData = nextMatchesData.map((match, index) => ({
+      ...match,
+      estadio: stadiumsData[index],
+    }));
+
+    res.json(updatedMatchesData);
   } catch (error) {
     res.status(500).json({ error: 'Um erro ocorreu.' });
   }

@@ -29,9 +29,13 @@ async function getLastMatchesData() {
         .find('.match__lg_card--at-logo img')
         .attr('src');
 
-      const data = $(element)
+      let data = $(element)
         .find('.match__lg_card--info .match__lg_card--date')
-        .text();
+        .text()
+        .replace(', ', ' - ');
+      const parts = data.split(' - ');
+      const [dayAbbrev, dayMonth] = parts;
+      data = `${dayMonth} - ${dayAbbrev}`;
 
       const placar = $(element)
         .find('.match__lg_card--info .match__lg_card--scoreboard')
