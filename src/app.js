@@ -14,7 +14,9 @@ const port = process.env.PORT || 3000;
 
 app.use(cors(corsOptions));
 
-app.get('/', ()=> console.log('teste'))
+app.get('/', (req, res)=> {
+  return res.json('Hello world')
+} )
 
 app.get('/api/table', async (req, res) => {
   try {
