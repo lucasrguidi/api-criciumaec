@@ -5,14 +5,16 @@ const corsOptions = {
   credentials: true,
   optionSuccessStatus: 200,
 };
-const tableController = require('./controllers/tableController');
-const nextMatchesController = require('./controllers/nextMatchesController');
-const lastMatchesController = require('./controllers/lastMatchesController');
+const tableController = require('../controllers/tableController');
+const nextMatchesController = require('../controllers/nextMatchesController');
+const lastMatchesController = require('../controllers/lastMatchesController');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors(corsOptions));
+
+app.get('/', ()=> console.log('teste'))
 
 app.get('/api/table', async (req, res) => {
   try {
