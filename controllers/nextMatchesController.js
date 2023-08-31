@@ -37,11 +37,25 @@ async function getNextMatchesData() {
         })
         .eq(0)
         .text()
-        .trim()
-        .replace(', ', ' - ');
-      const parts = data.split(' - ');
-      const [dayAbbrev, dayMonth] = parts;
-      data = `${dayMonth} - ${dayAbbrev}`;
+        .trim();
+      if (data === 'amanhã') {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const day = String(tomorrow.getDate()).padStart(2, '0');
+        const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+        data = `${day}/${month} - AMANHÃ`;
+      } else if (data === 'hoje') {
+        const today = new Date();
+        today.setDate(today.getDate());
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        data = `${day}/${month} - HOJE`;
+      } else {
+        data = data.replace(', ', ' - ');
+        const parts = data.split(' - ');
+        const [dayAbbrev, dayMonth] = parts;
+        data = `${dayMonth} - ${dayAbbrev}`;
+      }
 
       const horario = $(element)
         .find('.match__lg_card--info .match__lg_card--datetime')
@@ -98,7 +112,7 @@ async function getEstadios() {
     throw new Error('Um erro ocorreu.');
   }
 }
-getEstadios();
+getNextMatchesData();
 
 module.exports = {
   getNextMatchesData,
