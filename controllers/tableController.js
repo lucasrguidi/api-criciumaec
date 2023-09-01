@@ -2,7 +2,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 async function getTableData() {
-  const url = "https://www.google.com.br/";
+  const url = "footystats.org/brazil/serie-b";
 
   try {
     const { data } = await axios.get(url);
