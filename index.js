@@ -1,33 +1,33 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 const corsOptions = {
-  origin: '*',
+  origin: "*",
   credentials: true,
   optionSuccessStatus: 200,
 };
-const tableController = require('./controllers/tableController');
-const nextMatchesController = require('./controllers/nextMatchesController');
-const lastMatchesController = require('./controllers/lastMatchesController');
+const tableController = require("./controllers/tableController");
+const nextMatchesController = require("./controllers/nextMatchesController");
+const lastMatchesController = require("./controllers/lastMatchesController");
 
 const app = express();
-const port = 4000
+const port = 4000;
 
 app.use(cors(corsOptions));
 
-app.get('/', (req, res)=> {
-  return res.json('Hello world')
-} )
+app.get("/", (req, res) => {
+  return res.json("Hello world");
+});
 
-app.get('/api/table', async (req, res) => {
+app.get("/api/table", async (req, res) => {
   try {
     const tableData = await tableController.getTableData();
     res.json(tableData);
   } catch (error) {
-    res.status(500).json({ error: 'Um erro ocorreu.' });
+    res.status(500).json({ error: "Um erro ocorreu." });
   }
 });
 
-app.get('/api/next-matches', async (req, res) => {
+app.get("/api/next-matches", async (req, res) => {
   try {
     const nextMatchesData = await nextMatchesController.getNextMatchesData();
     const stadiumsData = await nextMatchesController.getEstadios();
@@ -39,16 +39,16 @@ app.get('/api/next-matches', async (req, res) => {
 
     res.json(updatedMatchesData);
   } catch (error) {
-    res.status(500).json({ error: 'Um erro ocorreu.' });
+    res.status(500).json({ error: "Um erro ocorreu." });
   }
 });
 
-app.get('/api/last-matches', async (req, res) => {
+app.get("/api/last-matches", async (req, res) => {
   try {
     const lastMatchesData = await lastMatchesController.getLastMatchesData();
     res.json(lastMatchesData);
   } catch (error) {
-    res.status(500).json({ error: 'Um erro ocorreu.' });
+    res.status(500).json({ error: "Um erro ocorreu." });
   }
 });
 
@@ -56,5 +56,4 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
-
-module.exports = app
+module.exports = app;
