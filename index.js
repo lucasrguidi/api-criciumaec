@@ -20,9 +20,9 @@ app.get("/", (req, res) => {
 
 app.get("/api/table", async (req, res) => {
   try {
-    // const tableData = await tableController.getTableData();
-    // res.json(tableData);
-    res.json("entrou");
+    let tableData = await tableController.getTableData();
+    tableData = JSON.stringify(tableData);
+    res.send(tableData);
   } catch (error) {
     res.status(500).json({ error: "Um erro ocorreu." });
   }
