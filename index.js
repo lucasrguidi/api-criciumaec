@@ -5,9 +5,9 @@ const corsOptions = {
   credentials: true,
   optionSuccessStatus: 200,
 };
-const tableController = require('../controllers/tableController');
-const nextMatchesController = require('../controllers/nextMatchesController');
-const lastMatchesController = require('../controllers/lastMatchesController');
+const tableController = require('./controllers/tableController');
+const nextMatchesController = require('./controllers/nextMatchesController');
+const lastMatchesController = require('./controllers/lastMatchesController');
 
 const app = express();
 const port = 4000
