@@ -1,8 +1,8 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 async function getTableData() {
-  const url = 'https://www.gazetaesportiva.com/campeonatos/brasileiro-serie-b/';
+  const url = "https://footystats.org/brazil/serie-b";
 
   try {
     const { data } = await axios.get(url);
@@ -10,16 +10,16 @@ async function getTableData() {
 
     const tableData = [];
 
-    $('table tbody tr').each((i, element) => {
-      const posicao = $(element).find('.table__position').text().trim();
-      const escudo = $(element).find('.table__shield img ').attr('src');
-      const nome = $(element).find('.table__team a').text();
-      const pontos = $(element).find('.table__stats').first().text();
-      const jogos = $(element).find('.table__stats:eq(1)').text();
-      const vitorias = $(element).find('.table__stats:eq(2)').text();
-      const empates = $(element).find('.table__stats:eq(3)').text();
-      const derrotas = $(element).find('.table__stats:eq(4)').text();
-      const saldoGols = $(element).find('.table__stats:eq(7)').text();
+    $(".full-league-table tbody tr").each((i, element) => {
+      const posicao = $(element).find(".position span").text();
+      const escudo = $(element).find(".crest img").attr("src");
+      const nome = $(element).find(".team a").first().text();
+      const pontos = $(element).find(".points").text();
+      const jogos = $(element).find(".mp").text();
+      const vitorias = $(element).find(".win").first().text();
+      const empates = $(element).find(".draw").first().text();
+      const derrotas = $(element).find(".loss").first().text();
+      const saldoGols = $(element).find(".gd").text();
 
       const rowData = {
         posicao: posicao,
@@ -40,7 +40,7 @@ async function getTableData() {
 
     return tableData;
   } catch {
-    throw new Error('Um erro ocorreu.');
+    throw new Error("Um erro ocorreu.");
   }
 }
 
