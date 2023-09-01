@@ -38,7 +38,7 @@ async function getTableData() {
       tableData.push(rowData);
     });
 
-    return tableData;
+    return { nome: "Lucas", sobrenome: "Puto" };
   } catch {
     throw new Error("Um erro ocorreu.");
   }

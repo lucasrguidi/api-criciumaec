@@ -20,37 +20,7 @@ app.get("/", (req, res) => {
 
 app.get("/api/table", async (req, res) => {
   try {
-    // let tableData = await tableController.getTableData();
-    let tableData = [
-      {
-        posicao: "1",
-        pontos: "48",
-        time: {
-          nome: "EC Vitória",
-          escudo:
-            "https://cdn.footystats.org/img/teams/brazil-ec-vitoria_thumb.png",
-        },
-        jogos: "25",
-        vitorias: "15",
-        empates: "3",
-        derrotas: "7",
-        saldo_gols: "+17",
-      },
-      {
-        posicao: "2",
-        pontos: "45",
-        time: {
-          nome: "Grêmio Novorizontino",
-          escudo:
-            "https://cdn.footystats.org/img/teams/brazil-gremio-novorizontino_thumb.png",
-        },
-        jogos: "26",
-        vitorias: "14",
-        empates: "3",
-        derrotas: "9",
-        saldo_gols: "+14",
-      },
-    ];
+    let tableData = await tableController.getTableData();
     res.json(tableData);
   } catch (error) {
     res.status(500).json({ error: "Um erro ocorreu." });
