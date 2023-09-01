@@ -2,12 +2,12 @@
   "name": "api-criciumaec",
   "version": "1.0.0",
   "description": "> Bem-vindo ao repositório da API do Criciúma EC Data! Esta é uma aplicação Node.js desenvolvida para fornecer dados atualizados e detalhados sobre o Criciúma Esporte Clube, um dos clubes de futebol mais queridos do Brasil. Através desta API, você poderá acessar informações essenciais sobre o desempenho do time na Série B do Campeonato Brasileiro, bem como os detalhes dos próximos jogos agendados.",
-  "main": "./src/app.js",
+  "main": "index.js",
   "engines": {
     "node": "18.x"
   },
   "scripts": {
-    "start": "node ./src/app.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",

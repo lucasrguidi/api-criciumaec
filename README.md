@@ -52,7 +52,7 @@ O projeto ainda está em desenvolvimento, tendo apenas funcionalidades iniciais.
 
 ## Rodar a API
 
-    node app.js
+    node index.js
 
 # REST API
 

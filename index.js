@@ -10,7 +10,7 @@ const nextMatchesController = require('../controllers/nextMatchesController');
 const lastMatchesController = require('../controllers/lastMatchesController');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 4000
 
 app.use(cors(corsOptions));
 
@@ -55,3 +55,6 @@ app.get('/api/last-matches', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+
+module.exports = app
